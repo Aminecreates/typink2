@@ -22856,7 +22856,7 @@ var login = exports.login = /*#__PURE__*/function () {
           _context.next = 4;
           return (0, _axios.default)({
             method: "POST",
-            url: "http://127.0.0.1:8000/api/v1/users/login",
+            url: "/api/v1/users/login",
             data: {
               email: email,
               password: password
@@ -22897,7 +22897,7 @@ var logout = exports.logout = /*#__PURE__*/function () {
           _context2.next = 3;
           return (0, _axios.default)({
             method: "GET",
-            url: "http://127.0.0.1:8000/api/v1/users/logout"
+            url: "/api/v1/users/logout"
           });
         case 3:
           res = _context2.sent;
@@ -22932,7 +22932,7 @@ var forgetPassword = exports.forgetPassword = /*#__PURE__*/function () {
           _context3.next = 3;
           return (0, _axios.default)({
             method: "POST",
-            url: "http://127.0.0.1:8000/api/v1/users/forgotPassword",
+            url: "/api/v1/users/forgotPassword",
             data: {
               email: email
             }
@@ -22974,7 +22974,7 @@ var resetPassword = exports.resetPassword = /*#__PURE__*/function () {
           _context4.next = 5;
           return (0, _axios.default)({
             method: "PATCH",
-            url: "http://127.0.0.1:8000/api/v1/users/resetPassword/".concat(token),
+            url: "/api/v1/users/resetPassword/".concat(token),
             data: {
               password: password,
               passwordConfirm: passwordConfirm
@@ -23031,7 +23031,7 @@ var updateData = exports.updateData = /*#__PURE__*/function () {
           _context.next = 3;
           return (0, _axios.default)({
             method: "PATCH",
-            url: "http://127.0.0.1:8000/api/v1/users/updateMe",
+            url: "/api/v1/users/updateMe",
             data: {
               name: name,
               email: email
@@ -23068,7 +23068,7 @@ var updateUserPhoto = exports.updateUserPhoto = /*#__PURE__*/function () {
           _context2.next = 3;
           return (0, _axios.default)({
             method: "PATCH",
-            url: "http://127.0.0.1:8000/api/v1/users/updateMe",
+            url: "/api/v1/users/updateMe",
             data: formData
           });
         case 3:
@@ -23103,7 +23103,7 @@ var updatePassword = exports.updatePassword = /*#__PURE__*/function () {
           _context3.next = 3;
           return (0, _axios.default)({
             method: "PATCH",
-            url: "http://127.0.0.1:8000/api/v1/users/updateMyPassword",
+            url: "/api/v1/users/updateMyPassword",
             data: {
               passwordCurrent: passwordCurrent,
               password: password,
@@ -23141,7 +23141,7 @@ var updateProfessionDescription = exports.updateProfessionDescription = /*#__PUR
           _context4.next = 3;
           return (0, _axios.default)({
             method: "PATCH",
-            url: "http://127.0.0.1:8000/api/v1/users/updateMe",
+            url: "/api/v1/users/updateMe",
             data: {
               profession: profession,
               description: description
@@ -23179,7 +23179,7 @@ var createArticleForm = exports.createArticleForm = /*#__PURE__*/function () {
           _context5.next = 3;
           return (0, _axios.default)({
             method: "POST",
-            url: "http://127.0.0.1:8000/api/v1/blogs",
+            url: "/api/v1/blogs",
             data: data
           });
         case 3:
@@ -23238,7 +23238,7 @@ var deleteUser = exports.deleteUser = /*#__PURE__*/function () {
           _context.next = 3;
           return (0, _axios.default)({
             method: "DELETE",
-            url: "http://127.0.0.1:8000/api/v1/users/".concat(userId)
+            url: "/api/v1/users/".concat(userId)
           });
         case 3:
           res = _context.sent;
@@ -23285,7 +23285,7 @@ var deleteArticle = exports.deleteArticle = /*#__PURE__*/function () {
           _context.next = 3;
           return (0, _axios.default)({
             method: "DELETE",
-            url: "http://127.0.0.1:8000/api/v1/blogs/".concat(articleId)
+            url: "/api/v1/blogs/".concat(articleId)
           });
         case 3:
           res = _context.sent;
@@ -23333,7 +23333,7 @@ var signUp = exports.signUp = /*#__PURE__*/function () {
           _context.next = 4;
           return (0, _axios.default)({
             method: "POST",
-            url: "http://127.0.0.1:8000/api/v1/users/signup",
+            url: "/api/v1/users/signup",
             data: {
               name: name,
               email: email,
@@ -23909,7 +23909,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52566" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60417" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
