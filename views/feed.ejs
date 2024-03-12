@@ -1,0 +1,144 @@
+<!-- views/base.ejs -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <%- include('partials/header') %>
+
+    <!-- fe e d c o n ten t -->
+    <div class="feed-content-container">
+      <div class="feed-left-content">
+        <div class="welcoming-section">
+          Welcome,
+          <span class="welcome-name"
+            ><%= user.name.charAt(0).toUpperCase() + user.name.slice(1) %></span
+          >
+        </div>
+        <div class="feed-tab-bar">
+          <span class="feed-tab active" data-topic="all">All</span>
+          <% topics.forEach(topic => { %>
+          <div class="feed-tab-spacer"></div>
+          <span class="feed-tab" data-topic="<%= topic %>"><%= topic %></span>
+          <% }); %>
+        </div>
+
+        <div class="feed-article-cards-container">
+          <% allBlogs.forEach(blog => { %>
+          <div class="feed-article-card">
+            <div class="article-card-top">
+              <div class="author-img__username">
+                <div class="user-img-container">
+                  <img
+                    src="<%= blog.author ? '/imgs/users/' + blog.author.photo : '#' %>"
+                    alt=""
+                  />
+                </div>
+                <div class="article-card-author-name-topic">
+                  <span class="article-card-author-name"
+                    ><%= blog.author ? blog.author.name : 'Anonymous' %></span
+                  >
+                  <span class="on">on</span>
+                  <span class="article-card-topic"><%= blog.topic %></span>
+                </div>
+              </div>
+              <div class="article-card-date">2 hours ago</div>
+            </div>
+            <div class="feed-article-card-image-container">
+              <img src="/imgs/article-images/<%= blog.imageCover %>" alt="" />
+            </div>
+            <div class="article-card-title-paragraphe">
+              <div class="article-card-title"><%= blog.title %></div>
+              <div class="article-card-paragraphe">
+                <%= blog.content.substring(0, 200) + (blog.content.length > 200
+                ? '...' : '') %>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+      <div class="feed-right-content">
+        <div class="right-top-spacer" style="height: 250px"></div>
+        <div class="feed-right-actual-content">
+          <div class="topic-list-container">
+            <div class="topic-list-contianer-title right-side-title">
+              Discover more of what matters to you
+            </div>
+
+            <div class="topic-list">
+              <% topics.forEach(topic => { %>
+
+              <div class="topic feed-tab" data-topic="<%= topic %>">
+                <%= topic %>
+              </div>
+
+              <% }); %>
+            </div>
+          </div>
+          <div class="random-suggestion-section">
+            <div class="random-suggestion-section-title right-side-title">
+              Random articles for you!
+            </div>
+            <div class="random-suggestion-section-cards">
+              <% latest3Blogs.forEach(blog => { %>
+
+              <div class="random-suggestion-card">
+                <div class="random-suggestion-card-top">
+                  <div class="random-suggestion-card-author-image">
+                    <img
+                      src="<%= blog.author ? `/imgs/users/${blog.author.photo}` : '#' %>"
+                      alt=""
+                    />
+                  </div>
+                  <div class="random-suggestion-card-top-author-name-topic">
+                    <span class="article-card-author-name">
+                      <%= blog.author ? blog.author.name : 'Unknown' %>
+                    </span>
+                    <span class="on">on</span>
+                    <span class="article-card-topic"> <%= blog.topic %> </span>
+                  </div>
+                </div>
+                <div class="random-suggestion-card-title">
+                  <%= blog.title %>
+                </div>
+                <div class="article-card-date">
+                  <%= formatDate(blog.createdAt) %>
+                </div>
+              </div>
+
+              <% }); %>
+            </div>
+          </div>
+
+          <div class="feed-right-content-footer">
+            <span class="copyright">&copy; Amine 2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"
+      integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/js/bundle.js"></script>
+  </body>
+</html>

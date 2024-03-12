@@ -1,0 +1,24 @@
+<div class="article-sect-container">
+  <div class="article-container">
+    <div class="article-meta-info">
+      <div class="article-title"><%= blog.title %></div>
+      <div class="article-article-author-topic">
+        <div class="article-article-author-img">
+          <img src=<%= `/imgs/users/${blog.author.photo}` %> alt="<%=
+          blog.author.name %>" />
+        </div>
+        <div class="article-article-author"><%= blog.author.name %></div>
+        on
+        <div class="article-article-topic"><%= blog.topic %></div>
+      </div>
+      <div class="article-date"><%= formatDate(blog.createdAt) %></div>
+    </div>
+
+    <div class="article-cover">
+      <img src=<%= `/imgs/article-images/${blog.imageCover}` %> alt="<%=
+      blog.title %>" />
+    </div>
+
+    <article><%- blog.content %></article>
+  </div>
+</div>

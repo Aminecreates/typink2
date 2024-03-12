@@ -1,0 +1,116 @@
+<!-- views/base.ejs -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- header -->
+    <%- include('partials/header') %>
+    <div class="write-article-container-wrapper">
+      <form id="article-form" action="/submit-article" method="post">
+        <div class="write-article-container">
+          <div class="text-editor-side">
+            <div id="example"></div>
+          </div>
+          <div class="article-details-side">
+            <div class="detail-input-container">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                id="article-title"
+                name="title"
+                placeholder="Article title here"
+                required
+              />
+            </div>
+            <div class="detail-input-container">
+              <label for="topic">Topic</label>
+              <div class="custom-select">
+                <select id="article-topic" name="topic" required>
+                  <option value="" disabled selected>Select a topic</option>
+                  <option value="Science">Science</option>
+                  <option value="Coding">Coding</option>
+                  <option value="Design">Design</option>
+                  <!-- Add more options as needed -->
+                </select>
+                <div class="select-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    class="bi bi-caret-down"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 10.586 1.707 4.293a1 1 0 0 1 1.414-1.414L8 8.758l5.879-5.879a1 1 0 1 1 1.414 1.414L8 10.586z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="detail-input-container">
+              <label for="article-photo">Choose a photo:</label>
+              <div class="custom-file-upload">
+                <input
+                  type="file"
+                  id="article-photo"
+                  name="article-photo"
+                  accept="image/*"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="#9098A9"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M110.66,147.56a8,8,0,0,0-13.32,0L76.49,178.85l-9.76-15.18a8,8,0,0,0-13.46,0l-36,56A8,8,0,0,0,24,232H152a8,8,0,0,0,6.66-12.44ZM38.65,216,60,182.79l9.63,15a8,8,0,0,0,13.39.11l21-31.47L137.05,216Zm175-133.66-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40v96a8,8,0,0,0,16,0V40h88V88a8,8,0,0,0,8,8h48V216h-8a8,8,0,0,0,0,16h8a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="detail-input-container">
+              <label for="tags">Tags</label>
+              <div class="tag-input">
+                <input
+                  type="text"
+                  id="tags"
+                  name="tags"
+                  placeholder="Add tags separated by commas"
+                  required
+                />
+              </div>
+            </div>
+            <button class="submit-article-button" type="submit">
+              Submit Article
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"
+      integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/js/bundle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!-- views/base.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <%- include('partials/header') %>
+
+    <div class="container">
+      <div class="tab">
+        <!-- Tab buttons -->
+        <button class="tablinks active" id="usersTabBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="##6a6969"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"
+            ></path></svg
+          >Users
+        </button>
+        <div class="feed-tab-spacer"></div>
+
+        <button class="tablinks" id="blogsTabBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="##6a6969"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM184,96a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,96Zm0,32a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,128Zm0,32a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,160Z"
+            ></path></svg
+          >Blogs
+        </button>
+      </div>
+
+      <!-- Users tab content -->
+      <div id="Users" class="tabcontent" style="display: block">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Blogs Number</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Sample row, replace with dynamic content -->
+              <% users.forEach(user => { %>
+              <tr>
+                <td>
+                  <img src=<%= `imgs/users/${user.photo}` %> alt="User Image"
+                  width="30" height="30" />
+                </td>
+                <td><%= user.name %></td>
+                <td><%= user.blogs.length %></td>
+                <td><%= user.email %></td>
+                <td>
+                  <button
+                    class="delete-user-btn"
+                    data-user-id="<%= user._id %>"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Blogs tab content -->
+      <div id="Blogs" class="tabcontent">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Blog Title</th>
+                <th>Author</th>
+                <th>Topic</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% blogs.forEach(blog => { %>
+
+              <tr>
+                <td><a href="/blogs/<%=blog.slug %>"><%= blog.title %></a></td>
+                <td><%= blog.author ? blog.author.name : 'Unknown' %></td>
+
+                <td><%= blog.topic %></td>
+                <td><%= formatDate(blog.createdAt) %></td>
+                <td>
+                  <button
+                    class="delete-article-btn"
+                    data-article-id="<%= blog._id %>"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              <% }); %>
+
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"
+      integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- <script src="/js/main.js"></script>
+    <script src="/js/login.js"></script> -->
+    <script src="/js/bundle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!-- views/base.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <%- include('partials/header') %>
+    <form class="edit-user-info-form-container">
+      <div class="edit-inputs-container">
+        <div class="edit-user-info-form">
+          <div class="user-info-edit-profile-image">
+            <div class="edit-user-image-container user-info-img-side">
+              <div class="user-image-container">
+                <img src=<%= `/imgs/users/${user.photo}` %> alt="" />
+              </div>
+              <div class="detail-input-container edit-input-file-upload">
+                <label for="article-photo">Choose a photo:</label>
+                <div class="custom-file-upload">
+                  <input
+                    type="file"
+                    id="article-photo"
+                    name="article-photo"
+                    accept="image/*"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="#9098A9"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M110.66,147.56a8,8,0,0,0-13.32,0L76.49,178.85l-9.76-15.18a8,8,0,0,0-13.46,0l-36,56A8,8,0,0,0,24,232H152a8,8,0,0,0,6.66-12.44ZM38.65,216,60,182.79l9.63,15a8,8,0,0,0,13.39.11l21-31.47L137.05,216Zm175-133.66-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40v96a8,8,0,0,0,16,0V40h88V88a8,8,0,0,0,8,8h48V216h-8a8,8,0,0,0,0,16h8a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160Z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-input-container">
+            <label for="profession">Profession</label>
+            <div class="custom-select">
+              <select id="profession" name="profession">
+                <option value="" disabled>Select a profession</option>
+                <option value="Designer" <% if (user.profession === 'Designer') { %> selected <% } %> >Designer</option>
+                <option value="Developer" <% if (user.profession === 'Developer') { %> selected <% } %> >Developer</option>
+                <option value="Musician" <% if (user.profession === 'Musician') { %> selected <% } %> >Musician</option>
+                <!-- Add more options as needed -->
+              </select>
+              <div class="select-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  class="bi bi-caret-down"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 10.586 1.707 4.293a1 1 0 0 1 1.414-1.414L8 8.758l5.879-5.879a1 1 0 1 1 1.414 1.414L8 10.586z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="input-container-description">
+            <textarea id="user-description" name="description" placeholder="Write something about you"><%= user.description %></textarea>
+          </div>
+          
+        </div>
+        <div class="edit-user-info-form">
+          <label for="username">Username</label>
+          <div class="input-container">
+            <input
+              type="text"
+              id="username"
+              value="<%= user.name %>"
+              name="name"
+              required
+            />
+          </div>
+          <label for="email">Email</label>
+
+          <div class="input-container">
+            <input
+              type="email"
+              id="email"
+              value="<%= user.email %>"
+              required
+              name="email"
+            />
+          </div>
+
+          <label class="label current-password">Current Password</label>
+          <div class="input-container">
+            <input type="password" id="password-current" placeholder="######" />
+          </div>
+          <label class="label password">New Password</label>
+          <div class="input-container">
+            <input type="password" id="password" placeholder="######" />
+          </div>
+          <label class="label password">Confirm password</label>
+          <div class="input-container">
+            <input type="password" id="password-confirm" placeholder="######" />
+          </div>
+        </div>
+      </div>
+      <button class="save-settings">Save Settings</button>
+    </form>
+
+    <script src="/js/bundle.js"></script>
+  </body>
+</html>

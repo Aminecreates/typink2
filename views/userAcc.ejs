@@ -1,0 +1,118 @@
+<!-- views/base.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <%- include('partials/header') %>
+    <div class="user-info-container">
+      <div class="user-info-flex">
+        <form class="user-info-img-side">
+          <div class="user-info-img">
+            <%= console.log('user.photo:', user.photo) %> <img src=<%=
+            `imgs/users/${user.photo}` %> alt="" />
+          </div>
+          <input type="file" accept="image/*" , id="photo" , name="photo" />
+          <label for="photo">Choose a photo</label>
+          <button class="user-info-upload-img">Save Settings</button>
+        </form>
+        <div class="user-info-info-side">
+            <p class="label username">Username</p>
+            <div class="input-container">
+              <input
+                type="text"
+                id="username"
+                value="<%= user.name %>"
+                name="name"
+                required
+              />
+            </div>
+            <br />
+            <p class="label email">Email</p>
+            <div class="input-container">
+              <input
+                type="email"
+                id="email"
+                value="<%= user.email %>"
+                required
+                name="email"
+              />
+            </div>
+            <br />
+            <button class="save-settings">Save Settings</button>
+          </form> -->
+          <form class="user-info-form">
+            <p class="label username">Username</p>
+            <div class="input-container">
+              <input
+                type="text"
+                id="username"
+                value="<%= user.name %>"
+                name="name"
+                required
+              />
+            </div>
+            <br />
+            <p class="label email">Email</p>
+            <div class="input-container">
+              <input
+                type="email"
+                id="email"
+                value="<%= user.email %>"
+                required
+                name="email"
+              />
+            </div>
+            <br />
+            <button class="save-settings">Save Settings</button>
+          </form>
+          <br />
+          <div class="title">Change password</div>
+          <br />
+          <form class="change-password-form">
+            <p class="label current-password">Current Password</p>
+            <div class="input-container">
+              <input
+                type="password"
+                id="password-current"
+                placeholder="######"
+              />
+            </div>
+            <br />
+            <p class="label password">Password</p>
+            <div class="input-container">
+              <input type="password" id="password" placeholder="######" />
+            </div>
+            <br />
+            <p class="label password">Confirm password</p>
+            <div class="input-container">
+              <input
+                type="password"
+                id="password-confirm"
+                placeholder="######"
+              />
+            </div>
+            <br />
+            <button class="save-settings">Save password</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <%-include('partials/submit-article-popup') %>
+
+    <script src="/js/bundle.js"></script>
+  </body>
+</html>
