@@ -4,7 +4,7 @@ export const deleteUser = async (userId) => {
   try {
     const res = await axios({
       method: "DELETE",
-      url: `http://127.0.0.1:8000/api/v1/users/${userId}`,
+      url: `/api/v1/users/${userId}`,
     });
     console.log("User deleted successfully");
     setTimeout(() => {

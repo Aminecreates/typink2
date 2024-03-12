@@ -4,7 +4,7 @@ export const updateData = async (name, email) => {
   try {
     const res = await axios({
       method: "PATCH",
-      url: "http://127.0.0.1:8000/api/v1/users/updateMe",
+      url: "/api/v1/users/updateMe",
       data: {
         name,
         email,
@@ -23,7 +23,7 @@ export const updateUserPhoto = async (formData) => {
   try {
     const res = await axios({
       method: "PATCH",
-      url: "http://127.0.0.1:8000/api/v1/users/updateMe",
+      url: "/api/v1/users/updateMe",
       data: formData,
     });
 
@@ -44,7 +44,7 @@ export const updatePassword = async (
   try {
     const res = await axios({
       method: "PATCH",
-      url: "http://127.0.0.1:8000/api/v1/users/updateMyPassword",
+      url: "/api/v1/users/updateMyPassword",
       data: {
         passwordCurrent,
         password,
@@ -63,7 +63,7 @@ export const updateProfessionDescription = async (profession, description) => {
   try {
     const res = await axios({
       method: "PATCH",
-      url: "http://127.0.0.1:8000/api/v1/users/updateMe",
+      url: "/api/v1/users/updateMe",
       data: {
         profession,
         description,
@@ -83,7 +83,7 @@ export const createArticleForm = async (data, type) => {
   try {
     const res = await axios({
       method: "POST",
-      url: "http://127.0.0.1:8000/api/v1/blogs",
+      url: "/api/v1/blogs",
       data,
     });
 

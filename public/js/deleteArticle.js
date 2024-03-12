@@ -4,7 +4,7 @@ export const deleteArticle = async (articleId) => {
   try {
     const res = await axios({
       method: "DELETE",
-      url: `http://127.0.0.1:8000/api/v1/blogs/${articleId}`,
+      url: `/api/v1/blogs/${articleId}`,
     });
     console.log("Article deleted successfully");
     setTimeout(() => {
