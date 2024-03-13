@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       this.classList.add("active");
 
       try {
-        let url = "http://127.0.0.1:8000/api/v1/blogs";
+        let url = "https://typink2.onrender.com/api/v1/blogs";
 
         // If topic is not "All", add topic to the URL
         if (topic && topic.toLowerCase() !== "all") {
