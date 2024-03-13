@@ -23786,7 +23786,7 @@ document.addEventListener("DOMContentLoaded", /*#__PURE__*/_asyncToGenerator( /*
                   // Add "active" class to the clicked left content tab
                   this.classList.add("active");
                   _context3.prev = 3;
-                  url = "https://typink2.onrender.com/api/v1/blogs"; // If topic is not "All", add topic to the URL
+                  url = "".concat(window.location.origin, "/api/v1/blogs"); // If topic is not "All", add topic to the URL
                   if (topic && topic.toLowerCase() !== "all") {
                     url += "?topic=".concat(topic);
                   }
