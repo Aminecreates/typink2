@@ -23786,7 +23786,7 @@ document.addEventListener("DOMContentLoaded", /*#__PURE__*/_asyncToGenerator( /*
                   // Add "active" class to the clicked left content tab
                   this.classList.add("active");
                   _context3.prev = 3;
-                  url = "http://127.0.0.1:8000/api/v1/blogs"; // If topic is not "All", add topic to the URL
+                  url = "https://typink2.onrender.com/api/v1/blogs"; // If topic is not "All", add topic to the URL
                   if (topic && topic.toLowerCase() !== "all") {
                     url += "?topic=".concat(topic);
                   }
@@ -23909,7 +23909,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60417" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52497" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
